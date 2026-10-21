@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101715">
+<meta name="description" content="Ocung — Game Designer and aspiring Game Programmer. Selected game projects, skills, tools, and experience.">
+<title>Ocung — Game Designer & Game Programmer</title>
+<style>
+:root{--bg:#101715;--panel:#18221e;--panel2:#202d27;--text:#f0f4ef;--muted:#a9b8b0;--lime:#c4f36b;--line:#304039;--max:1120px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(var(--max),calc(100% - 36px));margin:auto}
+header{position:sticky;top:0;z-index:20;background:#101715ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-size:1.5rem;font-weight:900;letter-spacing:-.06em}.brand span,.tag,.date{color:var(--lime)}nav{display:flex;gap:24px;align-items:center;color:var(--muted);font-size:.9rem}nav a:hover,nav a:focus{color:var(--lime)}.nav-cta{border:1px solid var(--line);padding:7px 12px;border-radius:8px;color:var(--text)}.menu{display:none;background:transparent;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+.hero{padding:90px 0 74px;display:grid;grid-template-columns:1.2fr .8fr;gap:42px;align-items:center}.eyebrow,.tag,.date{font: .76rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.08em}.eyebrow{color:var(--lime)}h1{font-size:clamp(3rem,7vw,5.7rem);line-height:.98;letter-spacing:-.075em;margin:20px 0}h1 em{color:var(--lime);font-style:normal}.intro,.muted{color:var(--muted)}.intro{max-width:610px;font-size:1.06rem}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin:12px 8px 0 0;padding:12px 16px;border:1px solid var(--line);border-radius:9px;font-weight:750;cursor:pointer;transition:transform .18s,border-color .18s}.btn:hover{transform:translateY(-2px);border-color:var(--lime)}.primary{background:var(--lime);color:#142015;border-color:var(--lime)}.hero-art{position:relative;overflow:hidden;padding:28px;border:1px solid var(--line);border-radius:20px;min-height:300px;background:linear-gradient(140deg,#26382c,#131a17);display:flex;flex-direction:column;justify-content:space-between}.hero-art:before{content:"";position:absolute;width:220px;height:220px;border:1px solid #c4f36b40;border-radius:50%;right:-80px;top:-75px;box-shadow:0 0 0 28px #c4f36b0b,0 0 0 56px #c4f36b08}.hero-art strong{position:relative;font-size:2.4rem;line-height:1.1;letter-spacing:-.06em;max-width:300px}.hero-art small{color:var(--muted);position:relative}
+section{padding:74px 0;border-top:1px solid #304039b0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:28px}.section-head p{color:var(--muted);max-width:450px;margin:0}h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.08;letter-spacing:-.06em;margin:10px 0 0}.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.project-card{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:var(--panel);transition:transform .2s,border-color .2s;display:flex;flex-direction:column}.project-card:hover{transform:translateY(-4px);border-color:#78934d}.project-card img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#000}.content{padding:21px;display:flex;flex-direction:column;flex:1}.content h3{font-size:1.35rem;line-height:1.25;margin:9px 0}.content p{color:var(--muted);font-size:.92rem;margin:0 0 16px}.meta,.tool-list{display:flex;flex-wrap:wrap;gap:7px}.meta span,.tool-list span{font-size:.75rem;background:#26332c;padding:4px 8px;border-radius:5px;color:#dce5de}.card-action{margin-top:18px;align-self:flex-start;background:transparent;color:var(--lime);border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-weight:700;cursor:pointer}.card-action:hover{border-color:var(--lime);background:#c4f36b0c}
+.aboutgrid{display:grid;grid-template-columns:1fr 1fr;gap:30px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:14px}.panel h3{margin:0 0 10px}.date{font-size:.76rem}.experience-title{margin:5px 0}.panel p{margin:6px 0}.skills-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.skill-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:21px}.skill-card h3{margin:10px 0 7px}.skill-card p{margin:0;color:var(--muted);font-size:.9rem}.skill-example{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:.8rem;color:var(--lime)}.tools-section{margin-top:30px}.tools-panel{border:1px solid var(--line);background:var(--panel);padding:22px;border-radius:14px}.tools-panel h3{margin:0 0 14px}.tool-list span{padding:7px 10px;background:var(--panel2)}
+.contact{padding:clamp(28px,6vw,48px);border-radius:18px;background:var(--lime);color:#142015}.contact .tag{color:#344d1e}.contact h2{max-width:600px}.contact p{max-width:650px}.contact .btn{background:#142015;color:white;border-color:#142015}footer{padding:25px 0;color:var(--muted);font-size:.85rem}.footer-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+/* Project detail panel */
+.modal-backdrop{position:fixed;inset:0;z-index:50;background:#050807d9;display:none;align-items:flex-start;justify-content:center;padding:24px 16px;overflow-y:auto}.modal-backdrop.open{display:flex}.project-modal{position:relative;width:min(900px,100%);margin:auto;background:var(--bg);border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 90px #0009;overflow:hidden;animation:appear .18s ease-out}.modal-head{padding:25px 28px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.modal-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin:8px 0}.modal-head p{color:var(--muted);margin:0}.close-modal{background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:9px;padding:8px 12px;cursor:pointer;flex-shrink:0}.modal-body{padding:26px 28px 30px}.showcase-main{background:#050706;border-radius:12px;overflow:hidden;border:1px solid var(--line);margin-bottom:12px}.showcase-main img,.showcase-main video{width:100%;max-height:480px;object-fit:contain;display:block}.showcase-main iframe{display:block;width:100%;aspect-ratio:16/9;border:0;background:#000}.gallery-item img{cursor:zoom-in}.showcase-note{font-size:.8rem;color:var(--muted);margin:0 0 25px}.detail-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:26px}.detail-block h3{margin:0 0 8px;font-size:1.05rem}.detail-block p,.detail-block li{color:var(--muted);font-size:.92rem}.detail-block ul{padding-left:20px;margin-top:8px}.detail-block li+li{margin-top:6px}.detail-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.detail-tags span{font-size:.78rem;border:1px solid var(--line);padding:5px 9px;border-radius:7px;color:var(--lime)}.media-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0 26px}.gallery-item{border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#050706}.gallery-item img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}.gallery-item figcaption{font-size:.72rem;color:var(--muted);padding:7px 9px}.modal-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.modal-links a{border:1px solid var(--line);padding:9px 12px;border-radius:8px;font-size:.88rem}.modal-links a:hover{border-color:var(--lime)}body.modal-open{overflow:hidden}@keyframes appear{from{opacity:.5;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+@media(max-width:760px){.hero,.aboutgrid{grid-template-columns:1fr}.projects{grid-template-columns:1fr}.hero{padding-top:60px}.section-head{align-items:flex-start;flex-direction:column}.detail-grid{grid-template-columns:1fr}.modal-head,.modal-body{padding:20px}.media-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.wrap{width:calc(100% - 26px)}.menu{display:block}nav{display:none;position:absolute;top:69px;left:0;right:0;padding:16px 20px 20px;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:14px}nav.open{display:flex}.nav-cta{text-align:center}.hero{padding:56px 0}.hero-art strong{font-size:2rem}.skills-grid{grid-template-columns:1fr}.modal-backdrop{padding:8px}.modal-head{gap:10px}.media-gallery{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="brand" href="#home" aria-label="Ocung home">ocung<span>.</span></a><button class="menu" id="menuBtn" aria-expanded="false" aria-controls="mainNav">Menu ☰</button><nav id="mainNav" aria-label="Main navigation"><a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a class="nav-cta" href="#contact">Contact ↗</a></nav></div></header>
+<main>
+<div class="wrap hero" id="home"><div><div class="eyebrow">Game Design · Game Development</div><h1>Designing games.<br><em>Building</em> experiences.</h1><p class="intro">I’m a game designer developing my skills as a game programmer. I enjoy shaping game mechanics, designing player experiences, and bringing ideas to life through playable projects.</p><a class="btn primary" href="#projects">Explore projects ↓</a><a class="btn" href="mailto:0cungamer@gmail.com">Get in touch ↗</a></div><div class="hero-art"><span class="tag">PLAYER ONE // READY</span><strong>Ideas become<br>playable worlds.</strong><small>GAME DESIGNER · ASPIRING GAME PROGRAMMER<br>INDONESIA</small></div></div>
+
+<section id="projects"><div class="wrap"><div class="section-head"><div><div class="tag">Selected work / 01</div><h2>Projects I’ve worked on.</h2></div><p>Select a project to explore its overview, contributions, gameplay highlights, and available media.</p></div>
+<div class="projects">
+<article class="project-card"><img src="assets/shopkeeper-simulation.png" alt="Shopkeeper Simulation main menu" loading="lazy"><div class="content"><div class="tag">2025–2026 · Simulation</div><h3>Shopkeeper Simulation</h3><p>A PC vertical-slice simulation about managing a second-hand phone shop. Inspect device condition, evaluate prices, negotiate with customers, and manage money, storage, and time.</p><div class="meta"><span>Game Design</span><span>Game Programming</span><span>Unity</span><span>Solo Dev</span></div><button class="card-action" data-project="shopkeeper">Explore project ↗</button></div></article>
+<article class="project-card"><img src="assets/escape-room.gif" alt="Escape Room: Computer Crafting gameplay" loading="lazy"><div class="content"><div class="tag">Feb–May 2023 · Puzzle</div><h3>Escape Room: Computer Crafting</h3><p>A room-escape game about AL, a teenager imprisoned after exploring the deep web. Players explore rooms, collect clues, and solve puzzles to progress.</p><div class="meta"><span>Map Design</span><span>Environment Placement</span></div><button class="card-action" data-project="escape">Explore project ↗</button></div></article>
+<article class="project-card"><img src="assets/trash-city.png" alt="Trash City game menu" loading="lazy"><div class="content"><div class="tag">Aug–Dec 2022 · Educational</div><h3>TRASH CITY</h3><p>A game about a waste collector working in a densely populated city. Players collect and sort rubbish while learning about different waste types through in-game information.</p><div class="meta"><span>Map Design</span><span>Environment Art</span><span>Environment Placement</span></div><button class="card-action" data-project="trash">Explore project ↗</button></div></article>
+</div></div></section>
+
+<section id="about"><div class="wrap aboutgrid"><div><div class="tag">About me / 02</div><h2>Designer’s mindset.<br>Developer’s curiosity.</h2><p class="muted">I’m interested in how mechanics, systems, and level design work together to create engaging player experiences. I’m growing my programming skills in Unity while building on my game design background.</p><div class="panel"><h3>Education</h3><div class="date">2021–2026</div><strong>Politeknik Elektronika Negeri Surabaya (PENS)</strong><p class="muted">Game Technology</p></div></div><div><div class="tag">Experience</div><div class="panel"><div class="date">2025–2026</div><h3 class="experience-title">Shopkeeper Simulation</h3><p class="muted">Game Design & Game Programming · Final Project</p></div><div class="panel"><div class="date">2024</div><h3 class="experience-title">Shiireishi Production</h3><p class="muted">Game Design Intern — analyzed similar games, designed 3D levels, and discussed level designs with the team.</p></div><div class="panel"><div class="date">2022</div><h3 class="experience-title">PUJASERA</h3><p class="muted">Game Design Intern — designed 2D maps and researched and balanced in-game item prices.</p></div><div class="panel"><div class="date">2021–Feb 2026</div><h3 class="experience-title">GADAS</h3><p class="muted">Active member contributing across changing team needs and activities.</p></div></div></div></section>
+
+<section id="skills"><div class="wrap"><div class="section-head"><div><div class="tag">Capabilities / 03</div><h2>Skills.</h2></div><p>Grouped by discipline, with examples of where these skills were applied in my projects.</p></div>
+<div class="skills-grid">
+<div class="skill-card"><div class="tag">01 / DESIGN</div><h3>Game Design</h3><p>Game mechanics, level design, balancing, and player experience.</p><div class="skill-example">Applied in: Shopkeeper Simulation · Escape Room · TRASH CITY</div></div>
+<div class="skill-card"><div class="tag">02 / DEVELOPMENT</div><h3>Game Development</h3><p>Unity and C# development, with a focus on expanding programming skills.</p><div class="skill-example">Applied in: Shopkeeper Simulation</div></div>
+<div class="skill-card"><div class="tag">03 / LEVEL & ENVIRONMENT</div><h3>Level Design</h3><p>Playable-area layouts, environment placement, and map design.</p><div class="skill-example">Applied in: Escape Room · TRASH CITY · internship projects</div></div>
+<div class="skill-card"><div class="tag">04 / TEAMWORK</div><h3>Project Collaboration</h3><p>Design communication, planning, and working with changing team needs.</p><div class="skill-example">Applied in: internships and collaborative game projects</div></div>
+</div>
+<div class="tools-section"><div class="section-head"><div><div class="tag">Workflow / 04</div><h2>Tools.</h2></div><p>Software and tools used across design, development, and collaboration.</p></div><div class="tools-panel"><h3>Tools & workflow</h3><div class="tool-list"><span>Unity</span><span>C#</span><span>Git</span><span>GitHub</span><span>VS Code</span><span>Figma</span><span>CorelDRAW</span><span>Adobe Illustrator</span><span>Notion</span></div></div></div>
+</div></section>
+
+<section id="contact"><div class="wrap"><div class="contact"><div class="tag">Have a project in mind?</div><h2>Let’s make something worth playing.</h2><p>I’m open to opportunities, collaboration, and conversations about game design and development.</p><a class="btn" href="mailto:0cungamer@gmail.com">0cungamer@gmail.com ↗</a></div></div></section>
+</main><footer><div class="wrap footer-inner"><span>© <span id="year"></span> Ocung. Built with curiosity.</span><a href="#home">Back to top ↑</a></div></footer>
+
+<div class="modal-backdrop" id="projectBackdrop" aria-hidden="true"><section class="project-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-head"><div><div class="tag" id="modalKicker">PROJECT SHOWCASE</div><h2 id="modalTitle">Project title</h2><p id="modalSubtitle"></p></div><button class="close-modal" id="closeModal" aria-label="Close project details">✕ Close</button></div><div class="modal-body" id="modalBody"></div></section></div>
+
+<script>
+const projectData = {
+  shopkeeper: {
+    title:"Shopkeeper Simulation", kicker:"2025–2026 · Simulation · Final Project",
+    subtitle:"PC · Unity · Solo development",
+    image:"assets/shopkeeper-simulation.png", alt:"Shopkeeper Simulation main menu",
+    youtubeId:"szmCSXuXHAw", youtubeUrl:"https://youtu.be/szmCSXuXHAw",
+    overview:"A PC vertical-slice simulation about managing a second-hand phone shop. Players inspect used smartphones, evaluate their condition, negotiate prices, and manage money, storage, and time.",
+    contributions:"The project combines game design and game programming in a solo-developed vertical slice.",
+    work:["Designed a gameplay loop around inspecting, pricing, buying, and selling second-hand smartphones.","Worked on systems for device condition, market value, customer negotiation, money, storage, and time.","Created an eight-slide tutorial to introduce the main systems."],
+    highlights:["Inspect physical condition, screen, connectivity, and camera.","Evaluate prices based on device condition and market value.","Negotiate with customers; rejected or incomplete offers affect customer patience.","Manage money, storage capacity, and in-game time."],
+    testing:"Questionnaire testing with 30 respondents was used to evaluate the tutorial. System understanding had the lowest score (3.88), informing further tutorial refinement.",
+    tags:["Game Design","Game Programming","Unity","Solo Dev"],
+    gallery:[["assets/shopkeeper-simulation.png","Main menu and tutorial entry"]], links:[{label:"Watch on YouTube",url:"https://youtu.be/szmCSXuXHAw"}]
+  },
+  escape: {
+    title:"Escape Room: Computer Crafting", kicker:"Feb–May 2023 · Puzzle",
+    subtitle:"Room escape · Environment and map design",
+    image:"assets/escape-room.gif", alt:"Escape Room: Computer Crafting gameplay",
+    overview:"A room-escape game about AL, a teenager imprisoned after exploring the deep web. Players explore rooms, collect clues, and solve puzzles to progress.",
+    contributions:"My documented contributions focused on planning playable spaces and arranging level environments.",
+    work:["Designed the layout of playable areas.","Placed environment elements within levels."],
+    highlights:["Explore and move between rooms.","Collect clues while exploring.","Use discovered clues to solve puzzles and progress."],
+    tags:["Map Design","Environment Placement","Puzzle Design"],
+    gallery:[["assets/escape-room.gif","Gameplay preview"],["assets/escape-room-collecting.gif","Collecting an item"],["assets/escape-room-room-transition.gif","Moving between rooms"],["assets/escape-room-puzzle-clue-a.gif","Puzzle clue interaction"],["assets/escape-room-puzzle-clue-b.gif","Puzzle clue interaction"],["assets/escape-room-puzzle-clue-c.gif","Puzzle clue interaction"]], links:[]
+  },
+  trash: {
+    title:"TRASH CITY", kicker:"Aug–Dec 2022 · Educational",
+    subtitle:"Educational game · Pixel art",
+    image:"assets/trash-city.png", alt:"TRASH CITY main menu",
+    overview:"A game about a waste collector working in a densely populated city. Players collect and sort rubbish while learning about different waste types through in-game information.",
+    contributions:"My documented contributions focused on map layout, environment art, and placing environmental elements throughout the level.",
+    work:["Designed the game map layout.","Contributed to environment art.","Placed environmental elements throughout the level."],
+    highlights:["Explore areas to collect waste.","Read informational dialogue introducing different waste types.","Use drag-and-drop interaction to sort waste."],
+    tags:["Map Design","Environment Art","Environment Placement","Educational"],
+    gallery:[["assets/trash-city.png","Main menu and visual direction"],["assets/trash-city-sorting-waste.gif","Sorting waste"],["assets/trash-city-identifying-waste.gif","Identifying waste types"],["assets/trash-city-collecting-waste.gif","Collecting waste"]], links:[]
+  }
+};
+const backdrop=document.getElementById("projectBackdrop");
+const modalBody=document.getElementById("modalBody");
+const modalTitle=document.getElementById("modalTitle");
+const modalKicker=document.getElementById("modalKicker");
+const modalSubtitle=document.getElementById("modalSubtitle");
+const closeBtn=document.getElementById("closeModal");
+let lastTrigger=null;
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function list(items){return `<ul>${items.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`}
+function openProject(key,trigger){
+  const p=projectData[key]; if(!p)return;
+  lastTrigger=trigger;modalTitle.textContent=p.title;modalKicker.textContent=p.kicker;modalSubtitle.textContent=p.subtitle;
+  const gallery=p.gallery.map(([src,caption])=>`<figure class="gallery-item"><img src="${src}" alt="${esc(caption)}" loading="lazy"><figcaption>${esc(caption)}</figcaption></figure>`).join("");
+  const links=p.links.length?p.links.map(l=>`<a href="${l.url}" target="_blank" rel="noopener noreferrer">${esc(l.label)} ↗</a>`).join(""):"";
+  const featuredMedia=p.youtubeId?`<iframe src="https://www.youtube-nocookie.com/embed/${p.youtubeId}" title="${esc(p.title)} gameplay video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`:`<img src="${p.image}" alt="${esc(p.alt)}">`;
+  modalBody.innerHTML=`<div class="showcase-main">${featuredMedia}</div><p class="showcase-note">${p.youtubeId?`Gameplay video embedded from YouTube. If it does not load, use the “Watch on YouTube” link below.`:"Gameplay screenshots and GIFs supplied for this project."}</p><div class="detail-grid"><div class="detail-block"><h3>Project overview</h3><p>${esc(p.overview)}</p><h3>My contributions</h3><p>${esc(p.contributions)}</p>${list(p.work)}</div><div class="detail-block"><h3>Gameplay highlights</h3>${list(p.highlights)}${p.testing?`<h3>Testing & iteration</h3><p>${esc(p.testing)}</p>`:""}<div class="detail-tags">${p.tags.map(t=>`<span>${esc(t)}</span>`).join("")}</div>${links?`<div class="modal-links">${links}</div>`:""}</div></div><h3 style="margin:28px 0 0">Media gallery</h3><div class="media-gallery">${gallery}</div>`;
+  backdrop.classList.add("open");backdrop.setAttribute("aria-hidden","false");document.body.classList.add("modal-open");closeBtn.focus();
+}
+function closeProject(){backdrop.classList.remove("open");backdrop.setAttribute("aria-hidden","true");document.body.classList.remove("modal-open");if(lastTrigger)lastTrigger.focus()}
+document.querySelectorAll("[data-project]").forEach(btn=>btn.addEventListener("click",()=>openProject(btn.dataset.project,btn)));
+closeBtn.addEventListener("click",closeProject);
+backdrop.addEventListener("click",e=>{if(e.target===backdrop)closeProject()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&backdrop.classList.contains("open"))closeProject()});
+const menuBtn=document.getElementById("menuBtn"),nav=document.getElementById("mainNav");
+menuBtn.addEventListener("click",()=>{const isOpen=nav.classList.toggle("open");menuBtn.setAttribute("aria-expanded",String(isOpen))});
+nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menuBtn.setAttribute("aria-expanded","false")}));
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
