@@ -47,7 +47,7 @@ function list(items){return `<ul>${items.map(x=>`<li>${esc(x)}</li>`).join("")}<
 function openProject(key,trigger){
   const p=projectData[key]; if(!p)return;
   lastTrigger=trigger;modalTitle.textContent=p.title;modalKicker.textContent=p.kicker;modalSubtitle.textContent=p.subtitle;
-  const gallery=p.gallery.map(([src,caption])=>`<figure class="gallery-item"><img src="${src}" alt="${esc(caption)}" loading="lazy"><figcaption>${esc(caption)}</figcaption></figure>`).join("");
+  const gallery=p.gallery.map(([src,caption],index)=>`<figure class="gallery-item"><button class="gallery-trigger" type="button" data-gallery-index="${index}" aria-label="View image: ${esc(caption)}"><img src="${src}" alt="${esc(caption)}" loading="lazy"></button><figcaption>${esc(caption)}</figcaption></figure>`).join("");
   const links=p.links.length?p.links.map(l=>`<a href="${l.url}" target="_blank" rel="noopener noreferrer">${esc(l.label)} ↗</a>`).join(""):"";
   const featuredMedia=p.youtubeId?`<iframe src="https://www.youtube-nocookie.com/embed/${p.youtubeId}" title="${esc(p.title)} gameplay video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`:`<img src="${p.image}" alt="${esc(p.alt)}">`;
   modalBody.innerHTML=`<div class="showcase-main">${featuredMedia}</div><p class="showcase-note">${p.youtubeId?`Gameplay video embedded from YouTube. If it does not load, use the “Watch on YouTube” link below.`:"Gameplay screenshots and GIFs supplied for this project."}</p><div class="detail-grid"><div class="detail-block"><h3>Project overview</h3><p>${esc(p.overview)}</p><h3>My contributions</h3><p>${esc(p.contributions)}</p>${list(p.work)}</div><div class="detail-block"><h3>Gameplay highlights</h3>${list(p.highlights)}${p.testing?`<h3>Testing & iteration</h3><p>${esc(p.testing)}</p>`:""}<div class="detail-tags">${p.tags.map(t=>`<span>${esc(t)}</span>`).join("")}</div>${links?`<div class="modal-links">${links}</div>`:""}</div></div><h3 style="margin:28px 0 0">Media gallery</h3><div class="media-gallery">${gallery}</div>`;
@@ -62,3 +62,91 @@ const menuBtn=document.getElementById("menuBtn"),nav=document.getElementById("ma
 menuBtn.addEventListener("click",()=>{const isOpen=nav.classList.toggle("open");menuBtn.setAttribute("aria-expanded",String(isOpen))});
 nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menuBtn.setAttribute("aria-expanded","false")}));
 document.getElementById("year").textContent=new Date().getFullYear();
+
+
+// Image lightbox: only the current project's gallery is navigable.
+const lightbox=document.getElementById("imageLightbox");
+const lightboxImage=document.getElementById("lightboxImage");
+const lightboxCaption=document.getElementById("lightboxCaption");
+const lightboxCounter=document.getElementById("lightboxCounter");
+const lightboxClose=document.getElementById("lightboxClose");
+const lightboxPrev=document.getElementById("lightboxPrev");
+const lightboxNext=document.getElementById("lightboxNext");
+let activeGallery=[];
+let activeGalleryIndex=0;
+let lightboxTrigger=null;
+
+function renderLightboxImage(){
+  const [src,caption]=activeGallery[activeGalleryIndex];
+  lightboxImage.src=src;
+  lightboxImage.alt=caption;
+  lightboxCaption.textContent=caption;
+  lightboxCounter.textContent=`${activeGalleryIndex+1} / ${activeGallery.length}`;
+  const hasMultiple=activeGallery.length>1;
+  lightboxPrev.hidden=!hasMultiple;
+  lightboxNext.hidden=!hasMultiple;
+}
+
+function openLightbox(index,trigger){
+  activeGalleryIndex=index;
+  lightboxTrigger=trigger;
+  renderLightboxImage();
+  lightbox.hidden=false;
+  document.body.classList.add("lightbox-open");
+  lightboxClose.focus();
+}
+
+function closeLightbox(){
+  if(lightbox.hidden) return;
+  lightbox.hidden=true;
+  lightboxImage.src="";
+  document.body.classList.remove("lightbox-open");
+  if(lightboxTrigger) lightboxTrigger.focus();
+}
+
+function showPreviousImage(){
+  if(!activeGallery.length) return;
+  activeGalleryIndex=(activeGalleryIndex-1+activeGallery.length)%activeGallery.length;
+  renderLightboxImage();
+}
+
+function showNextImage(){
+  if(!activeGallery.length) return;
+  activeGalleryIndex=(activeGalleryIndex+1)%activeGallery.length;
+  renderLightboxImage();
+}
+
+modalBody.addEventListener("click",event=>{
+  const trigger=event.target.closest(".gallery-trigger");
+  if(!trigger) return;
+  const projectKey=Object.keys(projectData).find(key=>modalTitle.textContent===projectData[key].title);
+  if(!projectKey) return;
+  activeGallery=projectData[projectKey].gallery;
+  activeGalleryIndex=Number(trigger.dataset.galleryIndex);
+  lightboxTrigger=trigger;
+  renderLightboxImage();
+  lightbox.hidden=false;
+  document.body.classList.add("lightbox-open");
+  lightboxClose.focus();
+});
+
+lightboxClose.addEventListener("click",closeLightbox);
+lightboxPrev.addEventListener("click",showPreviousImage);
+lightboxNext.addEventListener("click",showNextImage);
+lightbox.addEventListener("click",event=>{
+  if(event.target===lightbox) closeLightbox();
+});
+
+document.addEventListener("keydown",event=>{
+  if(lightbox.hidden) return;
+  if(event.key==="Escape"){
+    event.stopPropagation();
+    closeLightbox();
+  } else if(event.key==="ArrowLeft"){
+    event.preventDefault();
+    showPreviousImage();
+  } else if(event.key==="ArrowRight"){
+    event.preventDefault();
+    showNextImage();
+  }
+});
