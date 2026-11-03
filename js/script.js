@@ -57,7 +57,7 @@ function closeProject(){backdrop.classList.remove("open");backdrop.setAttribute(
 document.querySelectorAll("[data-project]").forEach(btn=>btn.addEventListener("click",()=>openProject(btn.dataset.project,btn)));
 closeBtn.addEventListener("click",closeProject);
 backdrop.addEventListener("click",e=>{if(e.target===backdrop)closeProject()});
-document.addEventListener("keydown",e=>{if(e.key==="Escape"&&backdrop.classList.contains("open"))closeProject()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&backdrop.classList.contains("open")&&lightbox.hidden)closeProject()});
 const menuBtn=document.getElementById("menuBtn"),nav=document.getElementById("mainNav");
 menuBtn.addEventListener("click",()=>{const isOpen=nav.classList.toggle("open");menuBtn.setAttribute("aria-expanded",String(isOpen))});
 nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menuBtn.setAttribute("aria-expanded","false")}));
